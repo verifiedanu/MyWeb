@@ -1,0 +1,26 @@
+[
+  {
+    "id": "pet001",
+    "name": "Buddy",
+    "photo": "https://i.pinimg.com/736x/7b/89/86/7b8986b36c58c3b3f242cbc085fbf6c8.jpg",
+    "shelter": "Happy Paws Shelter"
+  },
+  {
+    "id": "pet002",
+    "name": "Mittens",
+    "photo": "https://i.pinimg.com/1200x/1b/1f/83/1b1f8391fb356f015fd5614b64486bd1.jpg",
+    "shelter": "Cozy Cats Shelter"
+  },
+  {
+    "id": "pet003",
+    "name": "Charlie",
+    "photo": "https://i.pinimg.com/736x/35/47/3c/35473c59b81e6cbffb2d2d9a14f6c1c5.jpg",
+    "shelter": "Hope Animal Rescue"
+  },
+  {
+    "id": "pet004",
+    "name": "Luna",
+    "photo": "https://i.pinimg.com/736x/40/21/8d/40218d52c784c582c3f30e8db1c9f2d6.jpg",
+    "shelter": "Safe Haven Shelter"
+  }
+]

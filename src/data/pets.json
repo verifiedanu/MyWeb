@@ -1,0 +1,51 @@
+[
+  {
+    "id": "pet001",
+    "name": "Buddy",
+    "photo": "https://i.pinimg.com/736x/7b/89/86/7b8986b36c58c3b3f242cbc085fbf6c8.jpg",
+    "shelter": "Happy Paws Shelter"
+  },
+  {
+    "id": "pet002",
+    "name": "Mittens",
+    "photo": "https://i.pinimg.com/1200x/1b/1f/83/1b1f8391fb356f015fd5614b64486bd1.jpg",
+    "shelter": "Cozy Cats Shelter"
+  },
+  {
+    "id": "pet003",
+    "name": "Charlie",
+    "photo": "https://i.pinimg.com/1200x/f3/33/bb/f333bb3168cea81b276512f242247d44.jpg",
+    "shelter": "Friendly Paws Shelter"
+  },
+  {
+    "id": "pet004",
+    "name": "Luna",
+    "photo": "https://i.pinimg.com/736x/69/92/bc/6992bc9c9d42246b4339dd4c7742033f.jpg",
+    "shelter": "Happy Paws Shelter"
+  },
+  {
+    "id": "pet005",
+    "name": "Max",
+    "photo": "https://i.pinimg.com/736x/cd/62/b5/cd62b5e2179e1b77fae5a4ef0e9c1ea1.jpg",
+    "shelter": "Cozy Cats Shelter"
+  },
+  {
+    "id": "pet006",
+    "name": "Daisy",
+    "photo": "https://i.pinimg.com/736x/a5/a7/ae/a5a7ae02b8b76d8df34b0dfeb87e376a.jpg",
+    "shelter": "Friendly Paws Shelter"
+  },
+  
+  {
+    "id": "pet009",
+    "name": "Oliver",
+    "photo": "https://i.pinimg.com/1200x/75/c0/61/75c061eb240d0503e035713ac345646d.jpg",
+    "shelter": "Friendly Paws Shelter"
+  },
+  {
+    "id": "pet010",
+    "name": "Molly",
+    "photo": "https://i.pinimg.com/736x/7b/89/86/7b8986b36c58c3b3f242cbc085fbf6c8.jpg",
+    "shelter": "Happy Paws Shelter"
+  }
+]

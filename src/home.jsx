@@ -1,25 +1,41 @@
 import React, { useState } from "react";
+<<<<<<< HEAD
+=======
+import { motion } from "framer-motion";
+>>>>>>> 5703315 (Initial commit)
 
 // Pet images + adopter messages
 const petImages = [
   {
     src: "https://i.pinimg.com/736x/a7/0d/f5/a70df517e67605307c6c4cbf7cbc5a43.jpg",
+<<<<<<< HEAD
    
+=======
+>>>>>>> 5703315 (Initial commit)
     adopterMessage: "“Bella has brought so much joy to our family!” — Alex",
   },
   {
     src: "https://i.pinimg.com/736x/ee/35/6c/ee356cf98754dc6a065922a72be675d4.jpg",
+<<<<<<< HEAD
    
+=======
+>>>>>>> 5703315 (Initial commit)
     adopterMessage: "“Max is full of energy, we love playing fetch!” — Priya",
   },
   {
     src: "https://i.pinimg.com/736x/0d/c5/a0/0dc5a0ce74d28ff1af4bfaf411cfbc0b.jpg",
+<<<<<<< HEAD
    
+=======
+>>>>>>> 5703315 (Initial commit)
     adopterMessage: "“Luna curls up with me every night. Best decision ever!” — Sharan",
   },
   {
     src: "https://i.pinimg.com/736x/92/d6/95/92d6956bb5ec68fa36c408091d939a3c.jpg",
+<<<<<<< HEAD
    
+=======
+>>>>>>> 5703315 (Initial commit)
     adopterMessage: "“Charlie loves long walks. He’s part of our family now!” — Meera",
   },
 ];
@@ -44,6 +60,10 @@ export default function Home() {
         Hear from people who adopted their best friends ❤️
       </p>
 
+<<<<<<< HEAD
+=======
+      {/* Cards Section */}
+>>>>>>> 5703315 (Initial commit)
       <div
         style={{
           display: "flex",
@@ -117,7 +137,10 @@ export default function Home() {
 
               {/* Overlay with adopter message */}
               <div style={overlayStyle}>
+<<<<<<< HEAD
                 <div style={{ fontWeight: "600", marginBottom: 6 }}>{pet.message}</div>
+=======
+>>>>>>> 5703315 (Initial commit)
                 <div style={{ fontStyle: "italic", fontSize: "13px" }}>
                   {pet.adopterMessage}
                 </div>
@@ -126,6 +149,66 @@ export default function Home() {
           );
         })}
       </div>
+
+      {/* Why Adopt Section */}
+     {/* Why Adopt Section */}
+<section
+  style={{
+    marginTop: "60px",
+    padding: "20px 40px",
+    maxWidth: "800px",
+    marginInline: "auto",
+    textAlign: "left",
+    fontFamily: "Arial, sans-serif",
+  }}
+>
+  {/* Cute Header Bar */}
+  <motion.h2
+    initial={{ opacity: 0, y: 50, scale: 0.9 }}
+    whileInView={{ opacity: 1, y: 0, scale: 1 }}
+    transition={{ duration: 0.6, ease: "easeOut" }}
+    viewport={{ once: true }}
+    style={{
+      textAlign: "center",
+      marginBottom: "25px",
+      fontSize: "28px",
+      fontWeight: "700",
+      fontFamily: "'Poppins', sans-serif",
+      color: "#ff6f61",
+    }}
+  >
+    🐾 Why Adopt? 🐾
+  </motion.h2>
+
+  {/* Paragraph */}
+  <motion.p
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.7, delay: 0.2 }}
+    viewport={{ once: true }}
+    style={{ fontSize: "18px", lineHeight: "1.6", marginBottom: "15px" }}
+  >
+    Adopting a pet is more than just giving them a home — it’s about giving
+    them a second chance at life. Millions of pets are abandoned each year,
+    and by adopting, you’re saving a life.
+  </motion.p>
+
+  {/* List */}
+  <motion.ul
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.7, delay: 0.4 }}
+    viewport={{ once: true }}
+    style={{ fontSize: "18px", lineHeight: "1.8" }}
+  >
+    <li><strong>Save a Life:</strong> Adoption gives homeless pets a loving family.</li>
+    <li><strong>Affordable:</strong> Adoption costs are much lower than buying from breeders.</li>
+    <li><strong>Health Checked:</strong> Most pets come vaccinated and dewormed.</li>
+    <li><strong>Fight Pet Mills:</strong> Adopting helps reduce unethical breeding practices.</li>
+    <li><strong>Unconditional Love:</strong> Rescued pets often form the strongest bonds ❤️</li>
+  </motion.ul>
+</section>
+
     </div>
   );
 }

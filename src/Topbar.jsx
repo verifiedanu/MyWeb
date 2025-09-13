@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState } from "react";
 
 // Pet images + adopter messages
@@ -249,3 +250,65 @@ export default function Home() {
 //     </div>
 //   );
 // }
+=======
+import React from "react";
+import { useNavigate } from "react-router-dom";
+
+export default function Topbar() {
+  const buttons = ["Home", "Adoption", "Admin"];
+  const navigate = useNavigate();
+
+  return (
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        padding: "15px 30px",
+        backgroundColor: "#4CAF50",
+        fontFamily: "'Poppins', sans-serif",
+      }}
+    >
+      {/* Left side buttons */}
+      <div style={{ display: "flex", gap: "20px" }}>
+        {buttons.map((btn, index) => (
+          <button
+            key={index}
+            style={{
+              padding: "10px 20px",
+              borderRadius: "8px",
+              border: "none",
+              cursor: "pointer",
+              backgroundColor: "#fff",
+              color: "#4CAF50",
+              fontSize: "16px",
+              fontWeight: "600",
+              transition: "transform 0.2s, box-shadow 0.2s",
+            }}
+          >
+            {btn}
+          </button>
+        ))}
+      </div>
+
+      {/* Right side - Login/Signup */}
+      <button
+        style={{
+          padding: "10px 24px",
+          borderRadius: "8px",
+          border: "none",
+          cursor: "pointer",
+          backgroundColor: "#fff",
+          color: "#4CAF50",
+          fontSize: "16px",
+          fontWeight: "600",
+          transition: "transform 0.2s, box-shadow 0.2s",
+        }}
+        onClick={() => navigate("/login")}
+      >
+        Login / Sign Up
+      </button>
+    </div>
+  );
+}
+>>>>>>> 5703315 (Initial commit)

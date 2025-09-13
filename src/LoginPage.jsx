@@ -1,6 +1,10 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 
 export default function LoginPage() {
+  const navigate = useNavigate();
+
   return (
     <div
       style={{
@@ -16,60 +20,50 @@ export default function LoginPage() {
       <div
         style={{
           display: "flex",
-          flexDirection: "column", // 👈 stack vertically
+          flexDirection: "column",
           alignItems: "center",
           gap: "15px",
         }}
       >
-        {/* Option 1 */}
-        <button
+        {/* Adopt a Pet Button */}
+        <motion.button
+          onClick={() => navigate("/login-details")}
+          whileHover={{ scale: 1.05, boxShadow: "0 4px 12px rgba(0,0,0,0.15)" }}
+          whileTap={{ scale: 0.95 }}
           style={{
             padding: "12px 24px",
             fontSize: "16px",
             fontWeight: "500",
             borderRadius: "12px",
             border: "2px solid #B2DFDB",
-            backgroundColor: "#E0F7FA", // soft pastel
+            backgroundColor: "#E0F7FA",
             color: "#00796B",
             cursor: "pointer",
             transition: "transform 0.2s, box-shadow 0.2s",
           }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.transform = "scale(1.05)";
-            e.currentTarget.style.boxShadow = "0 4px 12px rgba(0,0,0,0.15)";
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.transform = "scale(1)";
-            e.currentTarget.style.boxShadow = "none";
-          }}
         >
-          Want to Adopt a Pet?
-        </button>
+          Adopt a Pet
+        </motion.button>
 
-        {/* Option 2 */}
-        <button
+        {/* Add Pet for Adoption Button */}
+        <motion.button
+          onClick={() => navigate("/login-details")}
+          whileHover={{ scale: 1.05, boxShadow: "0 4px 12px rgba(0,0,0,0.15)" }}
+          whileTap={{ scale: 0.95 }}
           style={{
             padding: "12px 24px",
             fontSize: "16px",
             fontWeight: "500",
             borderRadius: "12px",
             border: "2px solid #C5CAE9",
-            backgroundColor: "#E8EAF6", // another soft pastel
+            backgroundColor: "#E8EAF6",
             color: "#303F9F",
             cursor: "pointer",
             transition: "transform 0.2s, box-shadow 0.2s",
           }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.transform = "scale(1.05)";
-            e.currentTarget.style.boxShadow = "0 4px 12px rgba(0,0,0,0.15)";
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.transform = "scale(1)";
-            e.currentTarget.style.boxShadow = "none";
-          }}
         >
-           Want to Add Pet for Adoption?
-        </button>
+          Add Pet for Adoption
+        </motion.button>
       </div>
     </div>
   );

@@ -21,11 +21,19 @@ export default function Adoption() {
     const matchesSearch = pet.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          pet.shelter.toLowerCase().includes(searchTerm.toLowerCase());
     
-    const matchesAnimalType = animalType === '' || animalType === 'Animal Type' ||
-                             (animalType === 'Dog' && (pet.photo.includes('dog') || pet.name.toLowerCase().includes('buddy'))) ||
-                             (animalType === 'Cat' && (pet.photo.includes('cat') || pet.name.toLowerCase().includes('mittens'))) ||
-                             (animalType === 'Bird' && pet.photo.includes('bird')) ||
-                             (animalType === 'Other' && !pet.photo.includes('dog') && !pet.photo.includes('cat') && !pet.photo.includes('bird'));
+    // Better animal type detection based on pet names and photos
+    let petType = 'Other';
+    if (pet.photo.includes('dog') || 
+        ['buddy', 'mittens', 'luna', 'daisy', 'molly'].includes(pet.name.toLowerCase())) {
+      petType = 'Dog';
+    } else if (pet.photo.includes('cat') || 
+               ['charlie', 'oliver', 'max'].includes(pet.name.toLowerCase())) {
+      petType = 'Cat';
+    } else if (pet.photo.includes('bird')) {
+      petType = 'Bird';
+    }
+    
+    const matchesAnimalType = animalType === '' || animalType === 'Animal Type' || animalType === petType;
     
     const matchesStatus = status === '' || status === 'Status' || status === 'Available'; // All pets are available for now
     
@@ -39,7 +47,7 @@ export default function Adoption() {
   };
 
   return (
-    <div style={{ minHeight: "100vh", background: "hsl(45, 35%, 95%)", padding: "2rem 1rem" }}>
+    <div style={{ minHeight: "100vh", background: "#F8F9FA", padding: "2rem 1rem" }}>
       <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
         {/* Header */}
         <div style={{ textAlign: "center", marginBottom: "3rem" }}>
@@ -385,7 +393,163 @@ export default function Adoption() {
             <p>Check back later for new furry friends!</p>
           </div>
         )}
+
+        {/* FAQ Section */}
+        <div style={{
+          marginTop: "6rem",
+          marginBottom: "4rem",
+          padding: "0 1rem"
+        }}>
+          <div style={{
+            textAlign: "center",
+            marginBottom: "4rem"
+          }}>
+            <div style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "1rem",
+              marginBottom: "1rem"
+            }}>
+              <div style={{
+                width: "60px",
+                height: "2px",
+                background: "linear-gradient(90deg, transparent, #3b82f6, transparent)"
+              }} />
+              <h2 style={{
+                fontSize: "2.8rem",
+                fontWeight: "800",
+                color: "#1a202c",
+                margin: 0,
+                letterSpacing: "1px",
+                textTransform: "uppercase",
+                fontFamily: "'Inter', 'Segoe UI', sans-serif"
+              }}>
+                Frequently Asked Questions
+              </h2>
+              <div style={{
+                width: "60px",
+                height: "2px",
+                background: "linear-gradient(90deg, transparent, #3b82f6, transparent)"
+              }} />
+            </div>
+          </div>
+
+          <div style={{
+            maxWidth: "900px",
+            margin: "0 auto",
+            display: "flex",
+            flexDirection: "column",
+            gap: "1rem"
+          }}>
+            {[
+              {
+                question: "How does the adoption process work?",
+                answer: "Our adoption process is simple and thorough. First, browse our available pets online or visit our shelter. Fill out an adoption application, meet with our adoption counselors, and spend time with your chosen pet. Once approved, complete the adoption paperwork and take your new family member home!",
+                isOpen: true
+              },
+              {
+                question: "What documents do I need to adopt a pet?",
+                answer: "You'll need a valid ID, proof of residence, and if you're renting, written permission from your landlord. We also require contact information for your current veterinarian if you have other pets, and references from previous pet ownership experiences.",
+                isOpen: false
+              },
+              {
+                question: "Are the pets vaccinated and health-checked?",
+                answer: "Yes! All our pets receive comprehensive health checks, age-appropriate vaccinations, and are spayed or neutered before adoption. Each pet comes with medical records and a health certificate from our partnered veterinarians.",
+                isOpen: false
+              },
+              {
+                question: "What if my new pet doesn't get along with my family?",
+                answer: "We offer a 30-day adjustment period where you can return the pet if there are compatibility issues. Our team provides ongoing support and training resources to help ensure a successful transition for both you and your new pet.",
+                isOpen: false
+              },
+              {
+                question: "Do you offer training and behavioral support?",
+                answer: "Absolutely! We provide basic training tips, behavioral guidance, and can connect you with certified pet trainers. Many of our staff are experienced in animal behavior and are available for consultation even after adoption.",
+                isOpen: false
+              },
+              {
+                question: "What are the adoption fees and what do they cover?",
+                answer: "Adoption fees vary by animal type and age, typically ranging from $50-$300. Fees cover spaying/neutering, vaccinations, microchipping, health checks, and help support our rescue operations to save more animals in need.",
+                isOpen: false
+              }
+            ].map((faq, index) => (
+              <FAQItem key={index} question={faq.question} answer={faq.answer} isOpen={faq.isOpen} />
+            ))}
+          </div>
+        </div>
       </div>
+    </div>
+  );
+}
+
+// FAQ Item Component
+function FAQItem({ question, answer, isOpen: initialOpen }) {
+  const [isOpen, setIsOpen] = React.useState(initialOpen);
+
+  return (
+    <div style={{
+      border: "1px solid #e2e8f0",
+      borderRadius: "12px",
+      overflow: "hidden",
+      background: "#ffffff",
+      boxShadow: "0 2px 8px rgba(0,0,0,0.04)",
+      transition: "all 0.3s ease"
+    }}>
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        style={{
+          width: "100%",
+          padding: "1.5rem 2rem",
+          border: "none",
+          background: "transparent",
+          textAlign: "left",
+          cursor: "pointer",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          fontSize: "1.2rem",
+          fontWeight: "600",
+          color: "#2d3748",
+          transition: "background-color 0.2s ease",
+          fontFamily: "'Inter', 'Segoe UI', sans-serif"
+        }}
+        onMouseEnter={(e) => {
+          if (!isOpen) e.target.style.backgroundColor = "#f7fafc";
+        }}
+        onMouseLeave={(e) => {
+          if (!isOpen) e.target.style.backgroundColor = "transparent";
+        }}
+      >
+        <span>{question}</span>
+        <span style={{
+          fontSize: "1.5rem",
+          color: "#3b82f6",
+          transition: "transform 0.3s ease",
+          transform: isOpen ? "rotate(180deg)" : "rotate(0deg)"
+        }}>
+          {isOpen ? "−" : "+"}
+        </span>
+      </button>
+      
+      {isOpen && (
+        <div style={{
+          padding: "0 2rem 1.5rem 2rem",
+          borderTop: "1px solid #f1f5f9",
+          background: "#fafafa"
+        }}>
+          <p style={{
+            margin: 0,
+            color: "#718096",
+            lineHeight: "1.7",
+            fontSize: "1.05rem",
+            fontFamily: "'Inter', 'Segoe UI', sans-serif",
+            fontWeight: "400"
+          }}>
+            {answer}
+          </p>
+        </div>
+      )}
     </div>
   );
 }

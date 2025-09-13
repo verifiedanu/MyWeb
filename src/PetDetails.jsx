@@ -18,7 +18,7 @@ export default function PetDetails() {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        background: 'linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%)'
+        background: 'linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)'
       }}>
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -86,48 +86,48 @@ export default function PetDetails() {
       transition={{ duration: 0.5 }}
       style={{
         minHeight: '100vh',
-        background: 'linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%)',
+        background: 'linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)',
         padding: '2rem 1rem',
         fontFamily: '"Inter", "Segoe UI", "Roboto", sans-serif',
         position: 'relative'
       }}
     >
-      {/* Floating particles background */}
-      <div style={{
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        overflow: 'hidden',
-        zIndex: 0
-      }}>
-        {[...Array(6)].map((_, i) => (
-          <motion.div
-            key={i}
-            animate={{
-              y: [-20, -100, -20],
-              x: [-10, 10, -10],
-              opacity: [0.3, 0.8, 0.3]
-            }}
-            transition={{
-              duration: 4 + i,
-              repeat: Infinity,
-              ease: 'easeInOut',
-              delay: i * 0.5
-            }}
-            style={{
-              position: 'absolute',
-              width: '60px',
-              height: '60px',
-              borderRadius: '50%',
-              background: 'rgba(255,255,255,0.1)',
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-            }}
-          />
-        ))}
-      </div>
+        {/* Subtle floating elements */}
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          overflow: 'hidden',
+          zIndex: 0
+        }}>
+          {[...Array(4)].map((_, i) => (
+            <motion.div
+              key={i}
+              animate={{
+                y: [-15, -60, -15],
+                x: [-8, 8, -8],
+                opacity: [0.1, 0.3, 0.1]
+              }}
+              transition={{
+                duration: 6 + i,
+                repeat: Infinity,
+                ease: 'easeInOut',
+                delay: i * 1.5
+              }}
+              style={{
+                position: 'absolute',
+                width: '40px',
+                height: '40px',
+                borderRadius: '50%',
+                background: 'rgba(99, 102, 241, 0.1)',
+                top: `${Math.random() * 100}%`,
+                left: `${Math.random() * 100}%`,
+              }}
+            />
+          ))}
+        </div>
 
       <motion.div
         initial={{ scale: 0.9, y: 30 }}
@@ -135,99 +135,69 @@ export default function PetDetails() {
         transition={{ duration: 0.6, ease: 'easeOut' }}
         style={{
           width: '100%',
-          maxWidth: '900px',
+          maxWidth: '1200px',
           margin: '0 auto',
           position: 'relative',
-          zIndex: 1
+          zIndex: 1,
+          padding: '2rem'
         }}
       >
-        {/* Glass morphism container */}
-        <div
+        {/* Back button */}
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={() => navigate('/adoption')}
           style={{
-            background: 'rgba(255, 255, 255, 0.15)',
-            backdropFilter: 'blur(20px)',
-            border: '1px solid rgba(255, 255, 255, 0.2)',
-            borderRadius: '24px',
-            overflow: 'hidden',
-            boxShadow: '0 25px 50px rgba(0, 0, 0, 0.2)',
-            position: 'relative'
+            marginBottom: '2rem',
+            background: 'rgba(255, 255, 255, 0.9)',
+            border: '1px solid rgba(100, 116, 139, 0.2)',
+            borderRadius: '12px',
+            padding: '0.8rem 1.5rem',
+            fontSize: '14px',
+            cursor: 'pointer',
+            color: '#475569',
+            fontWeight: '600',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.5rem',
+            transition: 'all 0.3s ease',
+            boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
           }}
         >
-          {/* Back button */}
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => navigate('/adoption')}
-            style={{
-              position: 'absolute',
-              top: '20px',
-              left: '20px',
-              background: 'rgba(255, 255, 255, 0.2)',
-              backdropFilter: 'blur(10px)',
-              border: '1px solid rgba(255, 255, 255, 0.3)',
-              borderRadius: '12px',
-              padding: '0.7rem 1.2rem',
-              fontSize: '14px',
-              cursor: 'pointer',
-              color: 'white',
-              zIndex: 1001,
-              fontWeight: '600',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '0.5rem',
-              transition: 'all 0.3s ease'
-            }}
-          >
-            ← Back
-          </motion.button>
+          ← Back to Adoption
+        </motion.button>
 
-          {/* Pet Introduction with gradient text */}
-          <div style={{ 
-            padding: '4rem 2rem 2rem 2rem',
-            textAlign: 'center',
-            position: 'relative'
-          }}>
-            <motion.h1 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.6 }}
-              style={{ 
-                fontSize: '2rem',
-                background: 'linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4)',
-                backgroundSize: '300% 300%',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-                marginBottom: '1rem',
-                fontWeight: '700',
-                lineHeight: '1.2',
-                animation: 'gradient 3s ease infinite'
-              }}
-            >
-              {enhancedPet.description}
-            </motion.h1>
-          </div>
-
-          {/* Pet Image with advanced styling */}
+        {/* Main Content Layout */}
+        <div style={{
+          display: 'flex',
+          gap: '3rem',
+          alignItems: 'flex-start',
+          flexWrap: 'wrap',
+          background: 'rgba(255, 255, 255, 0.4)',
+          borderRadius: '24px',
+          padding: '2rem',
+          boxShadow: '0 8px 32px rgba(0,0,0,0.1)',
+          backdropFilter: 'blur(10px)',
+          border: '1px solid rgba(255, 255, 255, 0.2)'
+        }}>
+          {/* Left Side - Pet Image */}
           <motion.div 
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.4, duration: 0.6 }}
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.2, duration: 0.6 }}
             style={{ 
-              position: 'relative',
-              padding: '2rem',
-              display: 'flex',
-              justifyContent: 'center'
+              flex: '0 0 400px',
+              minWidth: '300px'
             }}
           >
             <div style={{
               position: 'relative',
-              width: '350px',
-              height: '280px',
+              width: '100%',
+              height: '500px',
               borderRadius: '20px',
               overflow: 'hidden',
-              boxShadow: '0 20px 60px rgba(0, 0, 0, 0.3)',
-              border: '3px solid rgba(255, 255, 255, 0.2)'
+              boxShadow: '0 12px 40px rgba(0, 0, 0, 0.15)',
+              border: '2px solid rgba(255, 255, 255, 0.3)'
             }}>
               <img
                 src={enhancedPet.images[currentImageIndex]}
@@ -240,24 +210,30 @@ export default function PetDetails() {
                 }}
               />
               
-              {/* Gradient overlay */}
+              {/* Pet name overlay */}
               <div style={{
                 position: 'absolute',
                 bottom: 0,
                 left: 0,
                 right: 0,
-                height: '60px',
-                background: 'linear-gradient(transparent, rgba(0,0,0,0.4))',
+                height: '80px',
+                background: 'linear-gradient(transparent, rgba(0,0,0,0.6))',
                 display: 'flex',
                 alignItems: 'end',
-                padding: '1rem',
-                color: 'white',
-                fontWeight: '600'
+                padding: '1.5rem',
+                color: 'white'
               }}>
-                {enhancedPet.name}
+                <h1 style={{ 
+                  fontSize: '2.2rem',
+                  fontWeight: '700',
+                  margin: 0,
+                  textShadow: '0 2px 10px rgba(0,0,0,0.5)'
+                }}>
+                  {enhancedPet.name}
+                </h1>
               </div>
               
-              {/* Navigation arrows with glow effect */}
+              {/* Navigation arrows */}
               {enhancedPet.images.length > 1 && (
                 <>
                   <motion.button
@@ -269,7 +245,7 @@ export default function PetDetails() {
                       left: '15px',
                       top: '50%',
                       transform: 'translateY(-50%)',
-                      background: 'rgba(255, 255, 255, 0.9)',
+                      background: 'rgba(255, 255, 255, 0.95)',
                       border: 'none',
                       borderRadius: '50%',
                       width: '40px',
@@ -279,8 +255,8 @@ export default function PetDetails() {
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      color: '#ff6b6b',
-                      boxShadow: '0 4px 15px rgba(0,0,0,0.2)',
+                      color: '#64748b',
+                      boxShadow: '0 4px 15px rgba(0,0,0,0.1)',
                       transition: 'all 0.3s ease'
                     }}
                   >
@@ -295,7 +271,7 @@ export default function PetDetails() {
                       right: '15px',
                       top: '50%',
                       transform: 'translateY(-50%)',
-                      background: 'rgba(255, 255, 255, 0.9)',
+                      background: 'rgba(255, 255, 255, 0.95)',
                       border: 'none',
                       borderRadius: '50%',
                       width: '40px',
@@ -305,8 +281,8 @@ export default function PetDetails() {
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      color: '#ff6b6b',
-                      boxShadow: '0 4px 15px rgba(0,0,0,0.2)',
+                      color: '#64748b',
+                      boxShadow: '0 4px 15px rgba(0,0,0,0.1)',
                       transition: 'all 0.3s ease'
                     }}
                   >
@@ -317,113 +293,83 @@ export default function PetDetails() {
             </div>
           </motion.div>
 
-          {/* Content sections with glass cards */}
+          {/* Right Side - Pet Information */}
           <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.6 }}
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.4, duration: 0.6 }}
             style={{ 
-              padding: '2rem',
-              maxHeight: '500px',
-              overflowY: 'auto'
+              flex: '1',
+              minWidth: '400px',
+              maxHeight: '600px',
+              overflowY: 'auto',
+              paddingRight: '1rem'
             }}
           >
             {/* Facts About Me */}
             <motion.div 
-              whileHover={{ scale: 1.02 }}
-              style={{ marginBottom: '2rem' }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 }}
+              style={{ marginBottom: '3rem' }}
             >
               <h2 style={{ 
-                fontSize: '1.4rem',
-                color: 'white',
-                marginBottom: '1rem',
-                fontWeight: '700',
-                textShadow: '0 2px 10px rgba(0,0,0,0.3)'
+                fontSize: '1.8rem',
+                color: '#374151',
+                marginBottom: '1.5rem',
+                fontWeight: '700'
               }}>
-                Facts About Me
+                About {enhancedPet.name}
               </h2>
+              
               <div style={{ 
                 display: 'grid',
-                gridTemplateColumns: '1fr 1fr',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
                 gap: '1rem',
-                background: 'rgba(255, 255, 255, 0.1)',
-                backdropFilter: 'blur(10px)',
-                padding: '1.5rem',
-                borderRadius: '16px',
-                border: '1px solid rgba(255, 255, 255, 0.2)',
-                boxShadow: '0 8px 32px rgba(0,0,0,0.1)'
+                marginBottom: '1rem'
               }}>
                 {[
                   { label: 'Breed', value: enhancedPet.breed },
                   { label: 'Gender', value: enhancedPet.gender },
-                  { label: 'Vaccinated', value: enhancedPet.vaccinated },
-                  { label: 'Pet Id', value: enhancedPet.petId },
                   { label: 'Age', value: enhancedPet.age },
-                  { label: 'Neutered', value: enhancedPet.neutered }
+                  { label: 'Vaccinated', value: enhancedPet.vaccinated },
+                  { label: 'Neutered', value: enhancedPet.neutered },
+                  { label: 'Pet ID', value: enhancedPet.petId }
                 ].map((item, index) => (
                   <motion.div
                     key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.8 + index * 0.1 }}
-                  >
-                    <span style={{ fontWeight: '500', color: 'rgba(255,255,255,0.8)', fontSize: '0.9rem' }}>{item.label}</span>
-                    <div style={{ color: 'white', fontWeight: '600', marginTop: '0.3rem', fontSize: '1rem' }}>{item.value}</div>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-
-            {/* My Info with animated status cards */}
-            <motion.div 
-              whileHover={{ scale: 1.02 }}
-              style={{ marginBottom: '2rem' }}
-            >
-              <h2 style={{ 
-                fontSize: '1.4rem',
-                color: 'white',
-                marginBottom: '1rem',
-                fontWeight: '700',
-                textShadow: '0 2px 10px rgba(0,0,0,0.3)'
-              }}>
-                My Info
-              </h2>
-              <div style={{ 
-                display: 'grid',
-                gridTemplateColumns: '1fr 1fr',
-                gap: '0.8rem',
-                fontSize: '0.9rem'
-              }}>
-                {[
-                  { icon: enhancedPet.traits.spayed ? '⚠️' : '✅', text: enhancedPet.traits.spayed ? 'Not Spayed' : 'Spayed', positive: !enhancedPet.traits.spayed },
-                  { icon: enhancedPet.traits.shotsUpToDate ? '✅' : '⚠️', text: enhancedPet.traits.shotsUpToDate ? 'Shots up to Date' : 'Shots not up to Date', positive: enhancedPet.traits.shotsUpToDate },
-                  { icon: '✅', text: 'Needs Loving Adopter', positive: true },
-                  { icon: enhancedPet.traits.goodWithCats ? '✅' : '⚠️', text: enhancedPet.traits.goodWithCats ? 'Good with Cats' : 'Not Good with Cats', positive: enhancedPet.traits.goodWithCats },
-                  { icon: enhancedPet.traits.goodWithDogs ? '✅' : '⚠️', text: enhancedPet.traits.goodWithDogs ? 'Good with Dogs' : 'Not Good with Dogs', positive: enhancedPet.traits.goodWithDogs },
-                  { icon: enhancedPet.traits.goodWithKids ? '✅' : '⚠️', text: enhancedPet.traits.goodWithKids ? 'Good with Kids' : 'Not Good with Kids', positive: enhancedPet.traits.goodWithKids }
-                ].map((item, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 1.2 + index * 0.1 }}
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    style={{ 
-                      display: 'flex',
-                      alignItems: 'center',
-                      padding: '0.8rem',
+                    style={{
+                      background: 'rgba(255, 255, 255, 0.6)',
+                      border: '1px solid rgba(148, 163, 184, 0.2)',
                       borderRadius: '12px',
-                      background: item.positive 
-                        ? 'linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(34, 197, 94, 0.2))'
-                        : 'linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(251, 191, 36, 0.2))',
-                      border: `1px solid ${item.positive ? 'rgba(16, 185, 129, 0.3)' : 'rgba(245, 158, 11, 0.3)'}`,
-                      backdropFilter: 'blur(10px)',
-                      cursor: 'pointer',
+                      padding: '1.2rem',
+                      textAlign: 'center',
                       transition: 'all 0.3s ease'
                     }}
+                    whileHover={{ 
+                      background: 'rgba(255, 255, 255, 0.8)',
+                      transform: 'translateY(-2px)',
+                      boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
+                    }}
                   >
-                    <span style={{ marginRight: '0.5rem', fontSize: '1.1rem' }}>{item.icon}</span>
-                    <span style={{ color: 'white', fontWeight: '600' }}>{item.text}</span>
+                    <div style={{ 
+                      color: '#6b7280', 
+                      fontSize: '0.9rem',
+                      marginBottom: '0.3rem',
+                      fontWeight: '500'
+                    }}>
+                      {item.label}
+                    </div>
+                    <div style={{ 
+                      color: '#374151', 
+                      fontWeight: '600', 
+                      fontSize: '1rem' 
+                    }}>
+                      {item.value}
+                    </div>
                   </motion.div>
                 ))}
               </div>
@@ -433,94 +379,68 @@ export default function PetDetails() {
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.8 }}
-              whileHover={{ scale: 1.02 }}
-              style={{ marginBottom: '1rem' }}
+              transition={{ delay: 1.6 }}
+              style={{ marginBottom: '2rem' }}
             >
               <h2 style={{ 
-                fontSize: '1.4rem',
-                color: 'white',
-                marginBottom: '1rem',
-                fontWeight: '700',
-                textShadow: '0 2px 10px rgba(0,0,0,0.3)'
+                fontSize: '2rem',
+                color: '#000000',
+                marginBottom: '1.5rem',
+                fontWeight: '700'
               }}>
                 Additional Adoption Info
               </h2>
               <div style={{
-                background: 'rgba(255, 255, 255, 0.1)',
-                backdropFilter: 'blur(10px)',
-                border: '1px solid rgba(255, 255, 255, 0.2)',
-                borderRadius: '16px',
-                padding: '1.5rem',
-                boxShadow: '0 8px 32px rgba(0,0,0,0.1)'
+                background: 'linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%)',
+                border: '1px solid #e9ecef',
+                borderRadius: '20px',
+                padding: '2rem',
+                boxShadow: '0 8px 32px rgba(0,0,0,0.15)'
               }}>
                 <p style={{ 
-                  color: 'rgba(255,255,255,0.9)',
+                  color: '#495057',
                   lineHeight: '1.6',
-                  fontSize: '1rem',
+                  fontSize: '1.1rem',
                   margin: 0
                 }}>
                   {enhancedPet.additionalInfo}
                 </p>
               </div>
             </motion.div>
-          </motion.div>
 
-          {/* Action button with gradient animation */}
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 2 }}
-            style={{ 
-              padding: '2rem',
-              borderTop: '1px solid rgba(255, 255, 255, 0.1)'
-            }}
-          >
-            <motion.button
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.98 }}
-              onClick={() => { 
-                alert(`Thank you for your interest in adopting ${enhancedPet.name}! We'll contact you soon.`); 
-              }}
-              style={{ 
-                width: '100%',
-                padding: '1.2rem 2rem',
-                borderRadius: '16px',
-                background: 'linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4)',
-                backgroundSize: '300% 300%',
-                color: '#ffffff',
-                border: 'none',
-                fontWeight: '700',
-                fontSize: '1.1rem',
-                cursor: 'pointer',
-                boxShadow: '0 10px 30px rgba(238, 90, 36, 0.4)',
-                position: 'relative',
-                overflow: 'hidden',
-                animation: 'gradient 3s ease infinite'
-              }}
+            {/* Action button */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.8 }}
             >
-              <span style={{ position: 'relative', zIndex: 1 }}>
+              <motion.button
+                whileHover={{ scale: 1.02, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => { 
+                  alert(`Thank you for your interest in adopting ${enhancedPet.name}! We'll contact you soon.`); 
+                }}
+                style={{ 
+                  width: '100%',
+                  padding: '1.5rem 2rem',
+                  borderRadius: '15px',
+                  background: 'linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%)',
+                  color: '#ffffff',
+                  border: 'none',
+                  fontWeight: '600',
+                  fontSize: '1.1rem',
+                  cursor: 'pointer',
+                  boxShadow: '0 8px 25px rgba(99, 102, 241, 0.3)',
+                  transition: 'all 0.3s ease'
+                }}
+              >
                 🐾 Contact About {enhancedPet.name} 🐾
-              </span>
-            </motion.button>
+              </motion.button>
+            </motion.div>
           </motion.div>
         </div>
       </motion.div>
 
-      {/* Add CSS animations */}
-      <style jsx>{`
-        @keyframes gradient {
-          0% {
-            background-position: 0% 50%;
-          }
-          50% {
-            background-position: 100% 50%;
-          }
-          100% {
-            background-position: 0% 50%;
-          }
-        }
-      `}</style>
     </motion.div>
   );
 }

@@ -1,161 +1,61 @@
-import React, { useState, useContext } from 'react';
-import { PetsContext } from './context/PetsContext';
-
-export default function Admin() {
-  const { pets, addPet, deletePet } = useContext(PetsContext);
-
-  const [showForm, setShowForm] = useState(false);
-
-  const [formData, setFormData] = useState({
-    id: '',
-    name: '',
-    photo: '',
-    shelter: '',
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    if (!formData.id || !formData.name || !formData.shelter) {
-      alert('Please fill all required fields');
-      return;
-    }
-
-    const newPet = { ...formData, adminAdded: true };
-    addPet(newPet);
-    alert(`Pet "${formData.name}" added successfully!`);
-
-    // Clear form
-    setFormData({ id: '', name: '', photo: '', shelter: '' });
-    setShowForm(false); // hide form after adding
-  };
-
+export default function AdminDashboard() {
   return (
-    <div style={{ padding: '2rem', maxWidth: '700px', margin: '0 auto' }}>
-      <h1>Admin Dashboard</h1>
+    <div className="p-8 bg-gray-50 min-h-screen">
+      {/* Header */}
+      <h1 className="text-3xl font-bold text-gray-800 flex items-center gap-2 mb-6">
+        🐾 Admin Dashboard
+      </h1>
+      <p className="text-gray-500 mb-10">Manage pets, adoption requests, and donations</p>
 
-      {/* Toggle Form Button */}
-      <button
-        onClick={() => setShowForm(prev => !prev)}
-        style={{
-          padding: '0.5rem 1rem',
-          marginTop: '1rem',
-          borderRadius: '6px',
-          backgroundColor: '#4CAF50',
-          color: '#fff',
-          border: 'none',
-          fontWeight: 'bold',
-          cursor: 'pointer'
-        }}
-      >
-        {showForm ? 'Close Form' : 'Add a Pet for Adoption'}
-      </button>
+      {/* Stats Row */}
+      <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-6 mb-10">
+        <div className="bg-white rounded-2xl shadow p-6 text-center">
+          <p className="text-gray-500">Pets Listed</p>
+          <h2 className="text-3xl font-bold text-blue-600">0</h2>
+        </div>
+        <div className="bg-white rounded-2xl shadow p-6 text-center">
+          <p className="text-gray-500">Pending Requests</p>
+          <h2 className="text-3xl font-bold text-yellow-500">3</h2>
+        </div>
+        <div className="bg-white rounded-2xl shadow p-6 text-center">
+          <p className="text-gray-500">Total Donations</p>
+          <h2 className="text-3xl font-bold text-green-600">$1500</h2>
+        </div>
+        <div className="bg-white rounded-2xl shadow p-6 text-center">
+          <p className="text-gray-500">Adoptions Completed</p>
+          <h2 className="text-3xl font-bold text-purple-600">5</h2>
+        </div>
+      </div>
 
-      {/* Add Pet Form */}
-      {showForm && (
-        <form
-          onSubmit={handleSubmit}
-          style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '1rem' }}
-        >
-          <input
-            required
-            name="id"
-            placeholder="Pet ID"
-            value={formData.id}
-            onChange={handleChange}
-          />
-          <input
-            required
-            name="name"
-            placeholder="Pet Name"
-            value={formData.name}
-            onChange={handleChange}
-          />
-          <input
-            name="photo"
-            placeholder="Photo URL"
-            value={formData.photo}
-            onChange={handleChange}
-          />
-          <input
-            required
-            name="shelter"
-            placeholder="Shelter Name"
-            value={formData.shelter}
-            onChange={handleChange}
-          />
+      {/* Navigation Tabs */}
+      <div className="flex gap-4 mb-10">
+        <button className="px-4 py-2 bg-blue-100 text-blue-600 rounded-full font-medium">Pet Management</button>
+        <button className="px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-full">Adoption Requests</button>
+        <button className="px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-full">Donations</button>
+      </div>
 
-          <button
-            type="submit"
-            style={{
-              padding: '0.5rem 1rem',
-              borderRadius: '6px',
-              backgroundColor: '#4CAF50',
-              color: '#fff',
-              border: 'none',
-              fontWeight: 'bold',
-              cursor: 'pointer'
-            }}
-          >
-            Add Pet
-          </button>
-        </form>
-      )}
+      {/* Pet Listings */}
+      <div className="bg-white rounded-2xl shadow p-6 mb-10">
+        <h2 className="text-xl font-semibold mb-2">🐶 Pet Listings</h2>
+        <p className="text-gray-500 mb-4">Manage your pet inventory</p>
+        <button className="px-4 py-2 bg-blue-500 text-white rounded-xl shadow hover:bg-blue-600 flex items-center gap-2">
+          ➕ Add Pet
+        </button>
+        <p className="mt-6 text-gray-400">No pets listed yet.</p>
+      </div>
 
-      {/* Admin Added Pets List */}
-      <h2 style={{ marginTop: '2rem' }}>Your Added Pets</h2>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '1rem' }}>
-        {pets.filter(p => p.adminAdded).length === 0 && (
-          <p>You haven’t added any pets yet.</p>
-        )}
+      {/* Adoption Requests */}
+      <div className="bg-white rounded-2xl shadow p-6 mb-10">
+        <h2 className="text-xl font-semibold mb-2">📩 Adoption Requests</h2>
+        <p className="text-gray-500 mb-4">Review and manage adoption requests</p>
+        <p className="text-gray-400">No requests yet.</p>
+      </div>
 
-        {pets.filter(p => p.adminAdded).map(pet => (
-          <div
-            key={pet.id}
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              border: '1px solid #ccc',
-              padding: '1rem',
-              borderRadius: '8px',
-              gap: '1rem',
-              backgroundColor: '#f9f9f9'
-            }}
-          >
-            {pet.photo && (
-              <img
-                src={pet.photo}
-                alt={pet.name}
-                style={{ width: '100px', height: '100px', objectFit: 'cover', borderRadius: '8px' }}
-              />
-            )}
-            <div style={{ flex: 1 }}>
-              <h3>{pet.name}</h3>
-              <p><strong>ID:</strong> {pet.id}</p>
-              <p><strong>Shelter:</strong> {pet.shelter}</p>
-              <p><strong>Admin Added:</strong> {pet.adminAdded ? 'Yes' : 'No'}</p>
-            </div>
-            <button
-              onClick={() => deletePet(pet.id)}
-              style={{
-                padding: '0.5rem 1rem',
-                borderRadius: '6px',
-                backgroundColor: '#f44336',
-                color: '#fff',
-                border: 'none',
-                fontWeight: 'bold',
-                cursor: 'pointer'
-              }}
-            >
-              Delete
-            </button>
-          </div>
-        ))}
+      {/* Donations Overview */}
+      <div className="bg-white rounded-2xl shadow p-6">
+        <h2 className="text-xl font-semibold mb-2">💰 Donations Overview</h2>
+        <p className="text-gray-500">Total raised this year: $1500</p>
+        <p className="text-gray-400 mt-4">Graph will go here...</p>
       </div>
     </div>
   );

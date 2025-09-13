@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import Home from './home';
 import Adoption from './adoption';
 import Admin from './admin';
+import PetDetails from './PetDetails';
 
 export default function App() {
   return (
@@ -44,6 +45,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/adoption" element={<Adoption />} />
+        <Route path="/pet/:id" element={<PetDetails />} />
         <Route path="/admin" element={<Admin />} />
       </Routes>
     </BrowserRouter>

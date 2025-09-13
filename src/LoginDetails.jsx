@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 export default function LoginDetails() {
   const [formData, setFormData] = useState({
@@ -152,6 +153,25 @@ export default function LoginDetails() {
         >
           Submit
         </motion.button>
+
+        {/* 👇 New user message */}
+        <p
+          style={{
+            marginTop: "15px",
+            fontStyle: "italic",
+            textAlign: "center",
+            fontSize: "14px",
+            color: "#555",
+          }}
+        >
+          New user?{" "}
+          <Link
+            to="/login/signup"
+            style={{ color: "#6c63ff", fontWeight: "600", textDecoration: "none" }}
+          >
+            Click to make a new account
+          </Link>
+        </p>
       </form>
     </div>
   );

@@ -1,41 +1,28 @@
 import React, { useState } from "react";
-<<<<<<< HEAD
-=======
+
 import { motion } from "framer-motion";
->>>>>>> 5703315 (Initial commit)
+
 
 // Pet images + adopter messages
 const petImages = [
   {
     src: "https://i.pinimg.com/736x/a7/0d/f5/a70df517e67605307c6c4cbf7cbc5a43.jpg",
-<<<<<<< HEAD
-   
-=======
->>>>>>> 5703315 (Initial commit)
+
     adopterMessage: "“Bella has brought so much joy to our family!” — Alex",
   },
   {
     src: "https://i.pinimg.com/736x/ee/35/6c/ee356cf98754dc6a065922a72be675d4.jpg",
-<<<<<<< HEAD
-   
-=======
->>>>>>> 5703315 (Initial commit)
+
     adopterMessage: "“Max is full of energy, we love playing fetch!” — Priya",
   },
   {
     src: "https://i.pinimg.com/736x/0d/c5/a0/0dc5a0ce74d28ff1af4bfaf411cfbc0b.jpg",
-<<<<<<< HEAD
-   
-=======
->>>>>>> 5703315 (Initial commit)
+
     adopterMessage: "“Luna curls up with me every night. Best decision ever!” — Sharan",
   },
   {
     src: "https://i.pinimg.com/736x/92/d6/95/92d6956bb5ec68fa36c408091d939a3c.jpg",
-<<<<<<< HEAD
-   
-=======
->>>>>>> 5703315 (Initial commit)
+
     adopterMessage: "“Charlie loves long walks. He’s part of our family now!” — Meera",
   },
 ];
@@ -60,10 +47,9 @@ export default function Home() {
         Hear from people who adopted their best friends ❤️
       </p>
 
-<<<<<<< HEAD
-=======
+
       {/* Cards Section */}
->>>>>>> 5703315 (Initial commit)
+
       <div
         style={{
           display: "flex",
@@ -137,10 +123,9 @@ export default function Home() {
 
               {/* Overlay with adopter message */}
               <div style={overlayStyle}>
-<<<<<<< HEAD
+
                 <div style={{ fontWeight: "600", marginBottom: 6 }}>{pet.message}</div>
-=======
->>>>>>> 5703315 (Initial commit)
+ 
                 <div style={{ fontStyle: "italic", fontSize: "13px" }}>
                   {pet.adopterMessage}
                 </div>

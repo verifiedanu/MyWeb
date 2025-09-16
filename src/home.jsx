@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
+import { color, motion } from "framer-motion";
 
 
 // Pet images + adopter messages
@@ -48,9 +48,9 @@ export default function Home() {
       />
 
       <header style={{ marginBottom: 20, fontFamily: "'Poppins', sans-serif" }}>
-        <h1 style={{ fontSize: 36, fontWeight: 700 }}>Looking to Adopt a Pet?</h1>
+        <h1 style={{ fontSize: 36, fontWeight: 700, color: "black" }}>Looking to Adopt a Pet?</h1>
       </header>
-      <p style={{ fontFamily: "Arial, sans-serif", fontSize: 18 }}>
+      <p style={{ fontFamily: "Arial, sans-serif", fontSize: 18, color: "black" }}>
         Hear from people who adopted their best friends ❤️
       </p>
 
@@ -594,7 +594,10 @@ export default function Home() {
       </section>
 
       {/* Contact Us Section */}
-      <section style={{
+      <section 
+        id="contact-us"
+        data-section="contact"
+        style={{
         marginTop: '80px',
         padding: '80px 20px',
         backgroundColor: '#f8f9fa',

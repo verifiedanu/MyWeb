@@ -9,12 +9,13 @@
     "lint": "eslint .",
     "preview": "vite preview"
   },
-
   "dependencies": {
+    "@tailwindcss/postcss": "^4.1.13",
+    "@tailwindcss/vite": "^4.1.13",
+    "framer-motion": "^11.0.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
-    "react-router-dom": "^6.23.0",
-    "framer-motion": "^11.0.0"
+    "react-router-dom": "^6.23.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.33.0",

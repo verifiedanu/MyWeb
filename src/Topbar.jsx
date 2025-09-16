@@ -125,8 +125,37 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function Topbar() {
-  const buttons = ["Home", "Adoption", "Admin"];
+  const buttons = ["Home", "Adoption", "Admin", "Contact Us"];
   const navigate = useNavigate();
+
+  const handleButtonClick = (btnText) => {
+    if (btnText === "Contact Us") {
+      // Check if we're already on the home page
+      if (window.location.pathname === "/") {
+        // Already on home page, just scroll to contact section
+        const contactSection = document.getElementById('contact-us') || document.querySelector('[data-section="contact"]');
+        if (contactSection) {
+          contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      } else {
+        // Navigate to home page first, then scroll to contact section
+        navigate("/");
+        // Use a longer timeout to ensure page loads completely
+        setTimeout(() => {
+          const contactSection = document.getElementById('contact-us') || document.querySelector('[data-section="contact"]');
+          if (contactSection) {
+            contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }, 800);
+      }
+    } else if (btnText === "Home") {
+      navigate("/");
+    } else if (btnText === "Adoption") {
+      navigate("/adoption");
+    } else if (btnText === "Admin") {
+      navigate("/admin");
+    }
+  };
 
   return (
     <div
@@ -155,6 +184,15 @@ export default function Topbar() {
               fontWeight: "600",
               transition: "transform 0.2s, box-shadow 0.2s",
             }}
+            onClick={() => handleButtonClick(btn)}
+            onMouseEnter={(e) => {
+              e.target.style.transform = "translateY(-2px)";
+              e.target.style.boxShadow = "0 4px 12px rgba(0,0,0,0.15)";
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.transform = "translateY(0)";
+              e.target.style.boxShadow = "none";
+            }}
           >
             {btn}
           </button>
@@ -175,6 +213,14 @@ export default function Topbar() {
           transition: "transform 0.2s, box-shadow 0.2s",
         }}
         onClick={() => navigate("/login")}
+        onMouseEnter={(e) => {
+          e.target.style.transform = "translateY(-2px)";
+          e.target.style.boxShadow = "0 4px 12px rgba(0,0,0,0.15)";
+        }}
+        onMouseLeave={(e) => {
+          e.target.style.transform = "translateY(0)";
+          e.target.style.boxShadow = "none";
+        }}
       >
         Login / Sign Up
       </button>

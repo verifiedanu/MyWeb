@@ -34,7 +34,7 @@ export default function LoginDetails() {
         style={{
           fontSize: "28px",
           marginBottom: "30px",
-          color: "#ff6f61",
+          color: "black",
         }}
       >
         Fill Your Details 🐾
@@ -57,7 +57,7 @@ export default function LoginDetails() {
         <input
           type="text"
           name="fullName"
-          placeholder="Full Name"
+          placeholder="Enter your full name (e.g., John Doe)"
           value={formData.fullName}
           onChange={handleChange}
           required
@@ -68,6 +68,7 @@ export default function LoginDetails() {
             outline: "none",
             fontSize: "15px",
             transition: "0.2s",
+            color: "#333",
           }}
           onFocus={(e) => (e.target.style.borderColor = "#6c63ff")}
           onBlur={(e) => (e.target.style.borderColor = "#ccc")}
@@ -77,7 +78,7 @@ export default function LoginDetails() {
         <input
           type="email"
           name="email"
-          placeholder="Email"
+          placeholder="Enter your email address (e.g., john@example.com)"
           value={formData.email}
           onChange={handleChange}
           required
@@ -88,6 +89,7 @@ export default function LoginDetails() {
             outline: "none",
             fontSize: "15px",
             transition: "0.2s",
+            color: "#333",
           }}
           onFocus={(e) => (e.target.style.borderColor = "#6c63ff")}
           onBlur={(e) => (e.target.style.borderColor = "#ccc")}
@@ -97,7 +99,7 @@ export default function LoginDetails() {
         <input
           type="tel"
           name="phone"
-          placeholder="Phone Number"
+          placeholder="Enter your phone number (e.g., +91 98765 43210)"
           value={formData.phone}
           onChange={handleChange}
           required
@@ -108,6 +110,7 @@ export default function LoginDetails() {
             outline: "none",
             fontSize: "15px",
             transition: "0.2s",
+            color: "#333",
           }}
           onFocus={(e) => (e.target.style.borderColor = "#6c63ff")}
           onBlur={(e) => (e.target.style.borderColor = "#ccc")}
@@ -117,7 +120,7 @@ export default function LoginDetails() {
         <input
           type="text"
           name="aadhaarLast4"
-          placeholder="Last 4 digits of Aadhaar"
+          placeholder="Enter last 4 digits of Aadhaar (e.g., 1234)"
           value={formData.aadhaarLast4}
           onChange={handleChange}
           maxLength="4"
@@ -129,6 +132,7 @@ export default function LoginDetails() {
             outline: "none",
             fontSize: "15px",
             transition: "0.2s",
+            color: "#333",
           }}
           onFocus={(e) => (e.target.style.borderColor = "#6c63ff")}
           onBlur={(e) => (e.target.style.borderColor = "#ccc")}
@@ -161,7 +165,7 @@ export default function LoginDetails() {
             fontStyle: "italic",
             textAlign: "center",
             fontSize: "14px",
-            color: "#555",
+            color: "#000000",
           }}
         >
           New user?{" "}

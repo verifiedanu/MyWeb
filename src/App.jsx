@@ -48,7 +48,7 @@ function NavBar() {
           style={{
             fontSize: "24px",
             fontWeight: "700",
-            color: "#2c3e50",
+            color: "#000000",
             letterSpacing: "-0.5px",
           }}
         >

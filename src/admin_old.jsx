@@ -6,8 +6,8 @@ const StatsCards = ({ pets }) => {
     {
       title: 'Pets Added',
       value: pets.length,
-      icon: '🐾',
-      color: 'from-blue-500 to-blue-600',
+      icon: '🐕',
+      color: 'bg-blue-500',
       bgColor: 'bg-blue-50',
       textColor: 'text-blue-600'
     },
@@ -15,17 +15,17 @@ const StatsCards = ({ pets }) => {
       title: 'Pending Requests',
       value: '12',
       icon: '⏳',
-      color: 'from-yellow-500 to-yellow-600',
-      bgColor: 'bg-yellow-50',
-      textColor: 'text-yellow-600'
+      color: 'bg-blue-400',
+      bgColor: 'bg-blue-50',
+      textColor: 'text-blue-600'
     },
     {
       title: 'Completed Adoptions',
       value: pets.filter(pet => pet.status === 'Adopted').length || '8',
       icon: '❤️',
-      color: 'from-green-500 to-green-600',
-      bgColor: 'bg-green-50',
-      textColor: 'text-green-600'
+      color: 'bg-blue-600',
+      bgColor: 'bg-blue-50',
+      textColor: 'text-blue-600'
     }
   ];
 
@@ -45,8 +45,8 @@ const StatsCards = ({ pets }) => {
                 {stat.value}
               </p>
             </div>
-            <div className={`w-16 h-16 bg-gradient-to-r ${stat.color} rounded-2xl flex items-center justify-center shadow-lg`}>
-              <span className="text-2xl">{stat.icon}</span>
+            <div className={`w-16 h-16 ${stat.color} rounded-2xl flex items-center justify-center shadow-lg`}>
+              <span className="text-2xl text-white">{stat.icon}</span>
             </div>
           </div>
         </div>
@@ -58,10 +58,10 @@ const StatsCards = ({ pets }) => {
 // Empty State Component
 const EmptyState = ({ onAddPet }) => {
   return (
-    <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-3xl p-12 text-center shadow-lg border-2 border-dashed border-gray-300 transform transition-all duration-300 hover:shadow-xl">
+    <div className="bg-gradient-to-br from-gray-50 to-blue-50 rounded-3xl p-12 text-center shadow-lg border-2 border-dashed border-gray-300 transform transition-all duration-300 hover:shadow-xl">
       <div className="mb-6">
-        <div className="w-24 h-24 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg animate-bounce">
-          <span className="text-4xl">🐾</span>
+        <div className="w-24 h-24 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg animate-bounce">
+          <span className="text-4xl text-white">🐕</span>
         </div>
         <h3 className="text-2xl font-bold text-gray-800 mb-2" style={{ fontFamily: 'Poppins, sans-serif' }}>
           No Pets Added Yet
@@ -71,7 +71,7 @@ const EmptyState = ({ onAddPet }) => {
         </p>
         <button
           onClick={onAddPet}
-          className="bg-gradient-to-r from-green-500 to-green-600 text-white px-8 py-3 rounded-xl font-semibold shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-xl active:scale-95 flex items-center gap-2 mx-auto"
+          className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-xl font-semibold shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-xl active:scale-95 flex items-center gap-2 mx-auto"
           style={{ fontFamily: 'Arial, sans-serif' }}
         >
           <span>➕</span>
@@ -161,10 +161,10 @@ const AddPetForm = ({ onSubmit }) => {
         <div className="text-center mb-8">
           <button
             onClick={() => setShowForm(true)}
-            className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-12 py-6 rounded-3xl font-bold text-xl shadow-2xl transform transition-all duration-300 hover:scale-110 hover:shadow-3xl active:scale-95 flex items-center gap-4 mx-auto group"
+            className="bg-blue-500 hover:bg-blue-600 text-white px-12 py-6 rounded-3xl font-bold text-xl shadow-2xl transform transition-all duration-300 hover:scale-110 hover:shadow-3xl active:scale-95 flex items-center gap-4 mx-auto group"
             style={{ fontFamily: 'Poppins, sans-serif' }}
           >
-            <span className="text-2xl group-hover:animate-bounce">🐾</span>
+            <span className="text-2xl group-hover:animate-bounce">🐕</span>
             Add a Pet for Adoption
             <span className="text-2xl transform group-hover:translate-x-2 transition-transform duration-300">→</span>
           </button>
@@ -181,9 +181,9 @@ const AddPetForm = ({ onSubmit }) => {
           <div className="flex justify-between items-center mb-8">
             <div className="text-center flex-1">
               <div className="inline-block p-4 bg-blue-100 rounded-full mb-4 animate-pulse">
-                <span className="text-4xl">🐾</span>
+                <span className="text-4xl">🐕</span>
               </div>
-              <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2" style={{ fontFamily: 'Poppins, sans-serif' }}>
+              <h2 className="text-3xl font-bold text-blue-600 mb-2" style={{ fontFamily: 'Poppins, sans-serif' }}>
                 Add New Pet
               </h2>
               <p className="text-gray-600" style={{ fontFamily: 'Arial, sans-serif' }}>
@@ -347,18 +347,18 @@ const AddPetForm = ({ onSubmit }) => {
               </div>
             </div>
 
-            {/* Animated Checkboxes */}
+            {/* Checkboxes */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
-              <div className="flex items-center p-4 bg-green-50 rounded-xl border-2 border-green-200 transform transition-all duration-300 hover:scale-105 hover:shadow-md">
+              <div className="flex items-center p-4 bg-blue-50 rounded-xl border-2 border-blue-200 transform transition-all duration-300 hover:scale-105 hover:shadow-md">
                 <input
                   type="checkbox"
                   name="vaccinated"
                   id="vaccinated"
                   checked={formData.vaccinated}
                   onChange={handleInputChange}
-                  className="h-5 w-5 text-green-600 border-green-300 rounded focus:ring-green-500 transition-all duration-300"
+                  className="h-5 w-5 text-blue-600 border-blue-300 rounded focus:ring-blue-500 transition-all duration-300"
                 />
-                <label htmlFor="vaccinated" className="ml-3 text-sm font-medium text-green-800 flex items-center" style={{ fontFamily: 'Arial, sans-serif' }}>
+                <label htmlFor="vaccinated" className="ml-3 text-sm font-medium text-blue-800 flex items-center" style={{ fontFamily: 'Arial, sans-serif' }}>
                   <span className="mr-2">💉</span>
                   Vaccinated
                 </label>
@@ -380,7 +380,7 @@ const AddPetForm = ({ onSubmit }) => {
               </div>
             </div>
 
-            {/* Photo Preview with Animation */}
+            {/* Photo Preview */}
             {formData.photoUrl && (
               <div className="pt-4 animate-fadeIn">
                 <label className="block text-sm font-medium text-gray-700 mb-2" style={{ fontFamily: 'Arial, sans-serif' }}>
@@ -397,14 +397,14 @@ const AddPetForm = ({ onSubmit }) => {
                       }}
                     />
                   </div>
-                  <div className="absolute -top-2 -right-2 bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center animate-pulse">
+                  <div className="absolute -top-2 -right-2 bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center animate-pulse">
                     ✓
                   </div>
                 </div>
               </div>
             )}
 
-            {/* Animated Submit Button */}
+            {/* Submit Button */}
             <div className="pt-6 flex gap-4">
               <button
                 type="button"
@@ -420,12 +420,12 @@ const AddPetForm = ({ onSubmit }) => {
                 className={`group relative px-12 py-4 font-bold rounded-2xl transition-all duration-300 transform ${
                   isSubmitting 
                     ? 'bg-gray-400 cursor-not-allowed' 
-                    : 'bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 hover:scale-105 hover:shadow-xl active:scale-95'
+                    : 'bg-blue-500 hover:bg-blue-600 hover:scale-105 hover:shadow-xl active:scale-95'
                 } text-white shadow-lg flex-1`}
                 style={{ fontFamily: 'Arial, sans-serif' }}
               >
                 <span className={`flex items-center justify-center ${isSubmitting ? 'opacity-0' : 'opacity-100'} transition-opacity duration-300`}>
-                  <span className="mr-2">🐾</span>
+                  <span className="mr-2">🐕</span>
                   Add Pet to Database
                   <span className="ml-2 transform group-hover:translate-x-1 transition-transform duration-300">→</span>
                 </span>
@@ -449,10 +449,10 @@ const AddPetForm = ({ onSubmit }) => {
         <div className="mt-8 animate-slideUp">
           <div className="bg-white rounded-3xl shadow-xl p-8 border border-gray-200">
             <div className="text-center mb-6">
-              <h3 className="text-2xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent" style={{ fontFamily: 'Poppins, sans-serif' }}>
+              <h3 className="text-2xl font-bold text-blue-600" style={{ fontFamily: 'Poppins, sans-serif' }}>
                 Recently Added Pets 🎉
               </h3>
-              <div className="inline-block mt-2 px-4 py-2 bg-green-100 text-green-800 rounded-full font-semibold animate-bounce">
+              <div className="inline-block mt-2 px-4 py-2 bg-blue-100 text-blue-800 rounded-full font-semibold animate-bounce">
                 {pets.length} Pet{pets.length > 1 ? 's' : ''} Added!
               </div>
             </div>
@@ -487,7 +487,7 @@ const AddPetForm = ({ onSubmit }) => {
                       </p>
                       <div className="flex gap-2 flex-wrap">
                         {pet.vaccinated && (
-                          <span className="text-xs bg-green-100 text-green-800 px-3 py-1 rounded-full font-medium animate-pulse">
+                          <span className="text-xs bg-blue-100 text-blue-800 px-3 py-1 rounded-full font-medium animate-pulse">
                             💉 Vaccinated
                           </span>
                         )}
@@ -515,18 +515,18 @@ const AddPetForm = ({ onSubmit }) => {
 };
 
 // Main Admin Dashboard Component
-export default  function admin() {
+export default function AdminDashboard() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
-      {/* Enhanced Header with Animation */}
-      <div className="bg-white shadow-lg border-b-4 border-gradient-to-r from-blue-500 to-purple-500 px-6 py-6">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-gray-50">
+      {/* Header */}
+      <div className="bg-white shadow-lg border-b-4 border-blue-500 px-6 py-6">
         <div className="flex justify-between items-center">
           <div className="flex items-center animate-slideInLeft">
-            <div className="p-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mr-4 animate-spin-slow">
-              <span className="text-2xl">🐾</span>
+            <div className="p-3 bg-blue-500 rounded-full mr-4 animate-spin-slow">
+              <span className="text-2xl text-white">🐕</span>
             </div>
             <div>
-              <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent" style={{ fontFamily: 'Poppins, sans-serif' }}>
+              <h1 className="text-3xl font-bold text-blue-600" style={{ fontFamily: 'Poppins, sans-serif' }}>
                 Admin Dashboard
               </h1>
               <p className="text-sm text-gray-600 mt-1" style={{ fontFamily: 'Arial, sans-serif' }}>
@@ -536,7 +536,7 @@ export default  function admin() {
           </div>
           <div className="flex items-center gap-3 animate-slideInRight">
             <div className="relative">
-              <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center shadow-lg transform transition-all duration-300 hover:scale-110">
+              <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center shadow-lg transform transition-all duration-300 hover:scale-110">
                 <span className="text-white text-lg font-bold">A</span>
               </div>
               <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-white animate-pulse"></div>
@@ -551,12 +551,12 @@ export default  function admin() {
         </div>
       </div>
       
-      {/* Main Content with Enhanced Background */}
+      {/* Main Content */}
       <main className="p-6 relative">
         {/* Floating Background Elements */}
         <div className="absolute top-10 left-10 w-20 h-20 bg-blue-200 rounded-full opacity-20 animate-float"></div>
-        <div className="absolute top-32 right-20 w-16 h-16 bg-purple-200 rounded-full opacity-20 animate-float-delayed"></div>
-        <div className="absolute bottom-20 left-1/4 w-12 h-12 bg-pink-200 rounded-full opacity-20 animate-float-slow"></div>
+        <div className="absolute top-32 right-20 w-16 h-16 bg-blue-300 rounded-full opacity-20 animate-float-delayed"></div>
+        <div className="absolute bottom-20 left-1/4 w-12 h-12 bg-blue-100 rounded-full opacity-20 animate-float-slow"></div>
         
         <div className="relative z-10">
           <AddPetForm />

@@ -28,7 +28,7 @@ export default function SplashScreen({ title = "AdoptMe", onFinish = () => {}, d
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+        background: '#eec6c7',
         backgroundSize: '400% 400%',
         animation: 'gradientShift 4s ease infinite'
       }}
@@ -92,10 +92,9 @@ export default function SplashScreen({ title = "AdoptMe", onFinish = () => {}, d
             fontSize: 'clamp(4rem, 12vw, 6rem)',
             fontWeight: '800',
             letterSpacing: '-0.025em',
-            color: '#ffffff',
+            color: '#000000',
             userSelect: 'none',
             fontFamily: "'Poppins', sans-serif",
-            textShadow: '0 0 30px rgba(255,255,255,0.5), 0 0 60px rgba(255,255,255,0.3)',
             position: 'relative',
             zIndex: 3
           }}>
@@ -134,7 +133,7 @@ export default function SplashScreen({ title = "AdoptMe", onFinish = () => {}, d
             alignItems: 'center',
             gap: '1rem'
           }}>
-            {/* Animated paw prints */}
+            {/* Animated paw prints
             <div style={{ display: 'flex', gap: '0.5rem' }}>
               {[...Array(3)].map((_, i) => (
                 <span
@@ -148,7 +147,7 @@ export default function SplashScreen({ title = "AdoptMe", onFinish = () => {}, d
                   🐾
                 </span>
               ))}
-            </div>
+            </div> */}
             
             {/* Loading bar */}
             <div style={{
